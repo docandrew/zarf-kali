@@ -13,19 +13,21 @@ spec:
     spec:
       containers:
       - name: zarf-kali
-        image: kasmweb/core-kali-rolling:develop-rolling
+        image: kasmweb/core-kali-rolling:1.12.0
         env:
         - name: VNC_PW
           value: changeme
         resources:
           limits:
-            memory: "128Mi"
+            memory: "4Gi"
             cpu: "500m"
         volumeMounts:
         - mountPath: /dev/shm
           name: cache-volume
         ports:
         - containerPort: 6901
+        securityContext:
+          privileged: true
       volumes:
       - emptyDir:
           medium: Memory
