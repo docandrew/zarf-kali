@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zarf-kali
+spec:
+  selector:
+    matchLabels:
+      app: zarf-kali
+  template:
+    metadata:
+      labels:
+        app: zarf-kali
+    spec:
+      containers:
+      - name: zarf-kali
+        image: kasmweb/core-kali-rolling:develop-rolling
+        env:
+        - name: VNC_PW
+          value: changeme
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        volumeMounts:
+        - mountPath: /dev/shm
+          name: cache-volume
+        ports:
+        - containerPort: 6901
+      volumes:
+      - emptyDir:
+          medium: Memory
+          sizeLimit: 512Mi
+        name: cache-volume

@@ -1,0 +1,17 @@
+kind: ZarfPackageConfig
+metadata:
+  name: zarf-kali
+  description: "Example Zarf package with Kali deployment"
+  architeccture: amd64
+
+components:
+  - name: zarf-kali
+    required: true
+    charts:
+      - name: zarf-kali
+        namespace: zarf-kali
+        url: https://github.com/docandrew/zarf-kali.git
+        version: "1.12.0"
+        gitPath: charts/zarf-kali
+    images:
+      - "kasmweb/core-kali-rolling"
