@@ -7,11 +7,10 @@ metadata:
 components:
   - name: zarf-kali
     required: true
-    charts:
+    manifests:
       - name: zarf-kali
         namespace: zarf-kali
-        url: https://github.com/docandrew/zarf-kali.git
-        version: "1.12.0"
-        gitPath: charts/zarf-kali
+        files:
+          - manifests/deployment.yaml
     images:
-      - "kasmweb/core-kali-rolling"
+      - "kasmweb/core-kali-rolling:1.12.0"
