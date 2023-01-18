@@ -12,5 +12,6 @@ components:
         namespace: zarf-kali
         files:
           - manifests/deployment.yaml
+          - manifests/service.yaml
     images:
       - "kasmweb/core-kali-rolling:1.12.0"

@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kali
+  annotations:
+    zarf.dev/connect-description: "Kali Desktop"
+    zarf.dev/connect-url: "?kali"
+  labels:
+    # Enables "zarf connect kali"
+    zarf.dev/connect-name: kali
+spec:
+  selector:
+    app: zarf-kali
+  ports:
+    - name: https
+      port: 6901
+      protocol: TCP
+      targetPort: 6901
