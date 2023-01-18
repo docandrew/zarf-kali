@@ -11,12 +11,14 @@ zarf package deploy zarf-package-zarf-kali-amd64.tar.zst
 kubectl -n zarf-kali get pods
 ```
 
-## Set up port forwarding
+## Set up port forwarding and connect
+
+Note: you may need to change `http` to `https` on older Zarf versions
+
 ```
-kubectl -n zarf-kali port-forward <name-of-kali-pod> 6901:6901
+zarf connect kali
 ```
 
-## Log into app
-* Go to https://localhost:6901/
-* Login with username: `kasm_user` password: `changeme`
+## Login
+Login with username: `kasm_user` password: `changeme`
 
