@@ -2,7 +2,7 @@ kind: ZarfPackageConfig
 metadata:
   name: zarf-kali
   description: "Example Zarf package with Kali deployment"
-  architeccture: amd64
+  architecture: amd64
 
 components:
   - name: zarf-kali
